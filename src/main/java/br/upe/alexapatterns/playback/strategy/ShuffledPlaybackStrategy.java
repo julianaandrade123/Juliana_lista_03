@@ -1,6 +1,8 @@
 package br.upe.alexapatterns.playback.strategy;
 
 import br.upe.alexapatterns.track.entity.Track;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;
@@ -21,7 +23,8 @@ public class ShuffledPlaybackStrategy implements PlaybackOrderStrategy {
 
   @Override
   public List<Track> order(List<Track> tracks) {
-    throw new UnsupportedOperationException(
-            "Implemente ShuffledPlaybackStrategy.order");
+    List<Track> order = new ArrayList<>(tracks);
+    Collections.shuffle(order, random);
+    return order;
   }
 }
